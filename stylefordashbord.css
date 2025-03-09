@@ -1,0 +1,62 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #fffbdb; /* Light Yellow */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #1c1c1c; /* Dark Black */
+    color: white;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+/* Sidebar Links */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #ffcc00; /* Bright Yellow Hover */
+    color: black;
+}
+
+.sidebar a i {
+    margin-right: 15px;
+}
+
+/* Content Area */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+    background-color: #fffbdb; /* Matches the yellow theme */
+    height: 100vh;
+}
+
+/* Welcome Message */
+.content h1 {
+    color: #333;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin & Hair Clinic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .logout-btn {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .option {
+            text-align: center;
+        }
+
+        .option h2 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #4CAF50;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to the Skin & Hair Clinic</h1>
+            <p>Your solution for all skin and hair treatments</p>
+        </div>
+        
+        <div class="content">
+            <!-- Patient Login Option -->
+            <div class="option">
+                <h2>Login as Patient</h2>
+                <a href="login.html"><button class="btn">Patient Login</button></a>
+            </div>
+
+            <!-- Staff Login and Register Options -->
+            <div class="option">
+                <h2>Staff Portal</h2>
+                <a href="staff_login.html"><button class="btn">Staff Login</button></a>
+                <a href="staff_register.html"><button class="btn">Register as Staff</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Skin & Hair Clinic. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function logout() {
+            // Handle logout logic
+            alert('Logout button clicked');
+        }
+    </script>
+</body>
+</html>

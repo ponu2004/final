@@ -1,0 +1,78 @@
+/* Universal reset for margins, padding, and box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styles */
+body {
+    background-image: url("image4.jpg"); /* Replace with your desired background image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Form styling */
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ba8b7ac7;
+    border-radius: 10px;
+    padding: 20px 40px; /* Add horizontal padding */
+    width: 450px;
+    box-shadow: 0 6px 10px rgb(255, 255, 255);
+}
+
+/* Header styling */
+h1 {
+    position: absolute;
+    top: -50px; /* Move above the form */
+    font-size: 2rem;
+    color: aliceblue;
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form container to hold inputs */
+form .form-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+/* Input field styling */
+form input {
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* Extra padding to leave space for icon */
+    border: 1px solid #795959;
+    border-radius: 15px;
+    font-size: 1rem;
+    z-index: 1; /* Keep input behind the icon */
+}
+
+/* Submit button styling */
+form input[type="submit"] {
+    color: whitesmoke;
+    background-color: blue;
+    border-color: black;
+    border-radius: 15px;
+    text-align: center;
+    width: 370px;
+    padding: 10px;
+}
+p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

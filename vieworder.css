@@ -1,0 +1,113 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffd700; /* Light Gray */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+h2 {
+    color: #333;
+    background-color: #ffd700; /* Gold */
+    padding: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+/* Table Container */
+.table-container {
+    width: 95%;
+    margin: 20px auto;
+    overflow-x: auto; /* Enables horizontal scrolling if needed */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table Header */
+th {
+    background-color: #000;
+    color: #ffd700; /* Gold */
+    padding: 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Table Cells */
+td {
+    color: #333;
+    padding: 12px;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Address Column Fix */
+td:nth-child(5) { 
+    max-width: 200px; /* Set max width for Address column */
+    word-break: break-word; /* Break long text properly */
+}
+
+/* Alternate Row Colors */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover Effect */
+tr:hover {
+    background-color: #ffeb99;
+    transition: 0.3s ease-in-out;
+}
+
+/* Buttons */
+button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffd700;
+    color: black;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .table-container {
+        overflow-x: auto; /* Ensures scrolling works */
+    }
+    
+    table {
+        font-size: 12px; /* Reduce font size for small screens */
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}

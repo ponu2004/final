@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poultry Farm Management System</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: lightyellow;
+        }
+
+        /* Header */
+        header {
+            background-color: #001f3d;
+            padding: 20px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-right: 30px;
+        }
+
+        header nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Sign Up and Sign In Button Styles */
+        .auth-buttons a {
+            background-color: #FFD700;
+            color: black;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .auth-buttons a:hover {
+            background-color: #E5B000;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url("pic2.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 250px 25px;
+            text-align: center;
+            
+            color: white;
+            position: relative;
+            height: 100vh;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: #FFD700;
+            color:black;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #E5B000;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 30px;
+            text-align: center;
+            background-color:white;
+            margin: 60px 0;
+        }
+
+        .section-content {
+    background-color: lightgoldenrodyellow;
+    border-radius: 10px;
+    border: 4px solid black; /* Add this line to create a black border */
+    box-shadow: 0 10px 200px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+}
+        
+
+        .section-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color:black;
+        }
+
+        .section-content p {
+            font-size: 1.1rem;
+            color:black;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .feature-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: #FFD700;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 280px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            background-color: #E5B000;
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background-color:grey;
+            border: 4px solid black;
+            padding: 30px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .testimonial-card p {
+            font-style:italic;
+            margin: 20px 0;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.2rem;
+            color: #FFD700;
+        }
+
+        /* Contact Us Section */
+        .contact {
+            background-color: #f9f9f9;
+            padding: 60px 30px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color:black;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 15px;
+            width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: blue;
+            
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color:yellow;
+            
+            color:black;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #E5B000;
+           
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #001f3d;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 10px;
+            font-size: 1rem;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="register.php">Sign Up</a>
+            <a href="login.php">Sign In</a>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero" id="home">
+    <h1>Welcome to Eggora Farms</h1>
+    <p>Your all-in-one platform for managing poultry farms and placing orders with ease.</p>
+    <a href="#about" class="cta-button">Get Started</a>
+</div>
+
+<!-- About Us Section -->
+<section id="about">
+    <div class="section-content">
+        <h2>About Us</h2>
+        <p>Our platform empowers poultry farm owners to manage their operations effortlessly. From inventory management to order placement, we provide all the tools you need to run a successful farm.</p>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features">
+    <div class="section-content">
+        <h2>Our Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>Inventory Management</h3>
+                <p>Easily track your farm's inventory and resources.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Order Placement</h3>
+                <p>Order feed, medicine, and supplies directly from the platform.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Data Analytics</h3>
+                <p>Gain insights to optimize farm performance and productivity.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-cards">
+        <div class="testimonial-card">
+            <p>"The Poultry Farm Management System has transformed the way we manage our farm. It's user-friendly and efficient."</p>
+            <h4>Riya mishra</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"With this platform, we can track our inventory and orders seamlessly. Highly recommend!"</p>
+            <h4>Mohan roy</h4>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Us Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Have any questions or need support? Reach out to us below!</p>
+    <div class="contact-form">
+        <input type="text" placeholder="Your Name"><br><br>
+        <input type="email" placeholder="Your Email"><br><br>
+        <textarea placeholder="Your Message"></textarea><br><br>
+        <button>Send Message</button>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<div class="footer">
+    <p>&copy; 2025 Poultry Farm Management System. All rights reserved.</p>
+    <p><a href="privacy-policy.php">Privacy Policy</a> | <a href="terms-conditions.php">Terms & Conditions</a></p>
+</div>
+
+</body>
+</html>

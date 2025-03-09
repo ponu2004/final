@@ -1,0 +1,113 @@
+<?php
+// home.php
+session_start();
+if (!isset($_SESSION['username'])) {
+    // Redirect to login if not logged in
+    header("Location: login.php");
+    exit;
+}
+
+include('connect.php');
+
+// Fetch data for the dashboard (replace these queries with your actual database schema)
+$birds_count = mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(*) AS count FROM birds"))['count'] ?? 0;
+$eggs_stock = mysqli_fetch_assoc(mysqli_query($con, "SELECT SUM(stock) AS stock FROM eggs"))['stock'] ?? 0;
+$feed_stock = mysqli_fetch_assoc(mysqli_query($con, "SELECT SUM(stock) AS stock FROM feed"))['stock'] ?? 0;
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="#overview">Overview</a>
+        <a href="#eggs">Egg Management</a>
+        <a href="#birds">Bird Management</a>
+        <a href="#feed">Feed Management</a>
+        <a href="#customers">Customer Management</a>
+        <a href="logout.php">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <div class="card">
+                <h3>Total Birds</h3>
+                <p><?php echo $birds_count; ?></p>
+            </div>
+            <div class="card">
+                <h3>Egg Stock</h3>
+                <p><?php echo $eggs_stock; ?> eggs</p>
+            </div>
+            <div class="card">
+                <h3>Feed Stock</h3>
+                <p><?php echo $feed_stock; ?> kg</p>
+            </div>
+        </section>
+
+        <section id="eggs">
+            <h2>Egg Management</h2>
+            <p>Manage egg production and sales here.</p>
+        </section>
+
+        <section id="birds">
+            <h2>Bird Management</h2>
+            <p>Track bird purchases and mortality here.</p>
+        </section>
+
+        <section id="feed">
+            <h2>Feed Management</h2>
+            <p>Manage feed purchases and consumption here.</p>
+        </section>
+
+        <section id="customers">
+            <h2>Customer Management</h2>
+            <p>Manage customer details and orders here.</p>
+        </section>
+    </div>
+</body>
+</html>
